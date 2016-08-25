@@ -74,7 +74,7 @@ public class AliPayPlugin extends CordovaPlugin {
                 // 构造PayTask 对象
                 PayTask alipay = new PayTask(cordova.getActivity());
                 // 调用支付接口，获取支付结果
-                String result = alipay.pay(payInfo);
+                String result = alipay.pay(payInfo, true);
                 PayResult payResult = new PayResult(result);
                 if (TextUtils.equals(payResult.getResultStatus(), "9000")) {
                     callbackContext.success(payResult.toJson());
